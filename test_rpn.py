@@ -4,20 +4,30 @@ import rpn
 
 class TestBasics(unittest.TestCase):
     def test_add(self):
-        result = rpn.calculate("1 1 +")
+        stack = list()
+        result = rpn.calculate("1 1 +", stack)
         self.assertEqual(2, result)
     def test_sub(self):
-        result = rpn.calculate("5 3 -")
+        stack = list()
+        result = rpn.calculate("5 3 -", stack)
         self.assertEqual(2, result)
     def test_multiply(self):
-        result = rpn.calculate("5 3 *")
+        stack = list()
+        result = rpn.calculate("5 3 *", stack)
         self.assertEqual(15, result)
     def test_divide(self):
-        result = rpn.calculate("6 3 /")
+        stack = list()
+        result = rpn.calculate("6 3 /", stack)
         self.assertEqual(2, result)
     def test_exponent(self):
-        result = rpn.calculate("2 3 ^")
+        stack = list()
+        result = rpn.calculate("2 3 ^", stack)
         self.assertEqual(8, result)
+    def test_persistence(self):
+        stack = list()
+        rpn.calculate("2 3 *", stack)
+        rpn.calculate("1 1", stack)
+        self.assertListEqual([6, 1, 1], stack)
 
 if __name__ == '__main__':
     unittest.main()
