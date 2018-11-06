@@ -3,11 +3,11 @@
 import operator
 
 
-op = {
+operators = {
     '+': operator.add,
     '-': operator.sub,
     '*': operator.mul,
-    '/': operator.floordiv,
+    '/': operator.truediv,
 }
 
 def calculate(myarg):

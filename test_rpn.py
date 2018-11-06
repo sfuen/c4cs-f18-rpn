@@ -7,11 +7,14 @@ class TestBasics(unittest.TestCase):
         result = rpn.calculate("1 1 +")
         self.assertEqual(2, result)
     def test_sub(self):
-        result = rpn.calculator("5 3 -")
+        result = rpn.calculate("5 3 -")
         self.assertEqual(2, result)
     def test_multiply(self):
         result = rpn.calculate("5 3 *")
         self.assertEqual(15, result)
     def test_divide(self):
-        result = rpn.calculator("6 3 /")
+        result = rpn.calculate("6 3 /")
         self.assertEqual(2, result)
+
+if __name__ == '__main__':
+    unittest.main()
