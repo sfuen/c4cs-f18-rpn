@@ -13,6 +13,9 @@ operators = {
 
 def calculate(myarg, stack):
     for token in myarg.split():
+        if token == "rotate":
+            stack.reverse()
+            continue
         try:
             token = int(token)
             stack.append(token)
@@ -25,17 +28,11 @@ def calculate(myarg, stack):
         print(stack)
     return stack[-1]
 
-def rotate(stack):
-    stack.reverse()
-
 def main():
     stack = list()
     while True:
         print("rpn calculator ", stack, ">> ", end="")
         inp = input()
-        if inp == "rotate":
-            rotate(stack)
-            continue
         result = calculate(inp, stack)
         for key in operators.keys():
             if inp.endswith(key):
