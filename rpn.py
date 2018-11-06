@@ -29,8 +29,11 @@ def main():
     stack = list()
     while True:
         print("rpn calculator ", stack, ">> ", end="")
-        result = calculate(input(), stack)
-        print("Result: ", result)
+        inp = input()
+        result = calculate(inp, stack)
+        for key in operators.keys():
+            if inp.endswith(key):
+                print("Result: ", result)
 
 if __name__ == '__main__':
     main()
