@@ -28,6 +28,12 @@ class TestBasics(unittest.TestCase):
         rpn.calculate("2 3 *", stack)
         rpn.calculate("1 1", stack)
         self.assertListEqual([6, 1, 1], stack)
+    def test_rotate(self):
+        stack = list()
+        rpn.calculate("1 2 3 4", stack)
+        rpn.rotate(stack)
+        print(stack)
+        self.assertListEqual([4, 3, 2, 1], stack)
 
 if __name__ == '__main__':
     unittest.main()
