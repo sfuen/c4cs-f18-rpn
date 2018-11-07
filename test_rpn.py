@@ -32,6 +32,10 @@ class TestBasics(unittest.TestCase):
         stack = list()
         rpn.calculate("1 2 3 rotate 4", stack)
         self.assertListEqual([3, 2, 1, 4], stack)
+    def test_copy(self):
+        stack = list()
+        rpn.calculate("1 2 3 copy", stack)
+        self.assertListEqual([1, 1, 2, 3], stack)
 
 if __name__ == '__main__':
     unittest.main()
